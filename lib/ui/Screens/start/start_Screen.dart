@@ -1,6 +1,8 @@
+import 'package:animate_do/animate_do.dart';
+import 'package:event_app/ui/Screens/setup/setup_Screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/app_Color.dart';
+import '../../../core/Theme/app_Color.dart';
 
 class StartScreen extends StatefulWidget {
   const StartScreen({super.key});
@@ -12,22 +14,28 @@ class StartScreen extends StatefulWidget {
 
 class _StartScreenState extends State<StartScreen> {
   @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 5),(){
+      Navigator.pushReplacementNamed(context, SetupScreen.routeName);
+    });
+  }
+  @override
   Widget build(BuildContext context) {
-   var size = MediaQuery.of(context).size;
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: AppColor.white,
-      body: Column(
+      body: Stack(
+        alignment: Alignment.center,
         children: [
-          Align(
-            alignment: Alignment.center,
+          Center(
             child: Image.asset('assets/image/Logo_app.png',
-                width:size.width *0.6),
-          ),
-          Spacer(),
-          SafeArea(
-            bottom: true,
+                  width:size.width *0.6),
+          ).zoomIn().slideUp(),
+          Positioned(
+            bottom: 32,
             child: Image.asset('assets/image/Logo2_app.png',
-                width:size.width *0.4),
+                width:size.width *0.4).zoomIn().slideUp(),
           )
         ],
       ),

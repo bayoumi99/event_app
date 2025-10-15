@@ -1,0 +1,16 @@
+{
+  "appName" : "Evently",
+  "PersonalizeYourExperience" : "Personalize Your Experience",
+  "setupMessage" :" Choose your preferred theme and language to get started with a comfortable,",
+  "language": "language",
+  "theme": "theme",
+  "Let'sGo":"Let's Go",
+  "email": "Email",
+  "password": "password",
+  "forgetPassword": "forget Password",
+  "login": "login",
+  "doNtHaveAccount": "don't Have Account",
+  "createAccount": "create Account",
+  "or": "or",
+  "loginWithGoogle": "login with google"
+}

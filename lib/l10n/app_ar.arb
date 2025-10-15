@@ -1,0 +1,16 @@
+{
+  "appName" : "Evently",
+  "PersonalizeYourExperience" : "خصص تجربتك",
+  "setupMessage" : "اختر سِمتك المفضلة ولغتك للبدء بتجربة مريحة،",
+  "language": "اللغة",
+  "theme": "السمة",
+  "Let'sGo":"لنبدأ",
+  "email": "البريد الإلكتروني",
+  "password": "كلمة المرور",
+  "forgetPassword": "نسيت كلمة المرور",
+  "login": "تسجيل الدخول",
+  "doNtHaveAccount": "ليس لديك حساب؟",
+  "createAccount": "إنشاء حساب",
+  "or": "أو",
+  "loginWithGoogle": "تسجيل الدخول باستخدام Google"
+}
