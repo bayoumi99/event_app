@@ -14,6 +14,13 @@ abstract class AppTheme{
         surface: AppColor.lightBlue,
         onSurface: AppColor.purple
     ),
+
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: AppColor.purple,
+          selectedItemColor: AppColor.white,
+          unselectedItemColor: AppColor.white,
+
+        ),
         filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
         shape: RoundedRectangleBorder(
@@ -111,6 +118,13 @@ abstract class AppTheme{
           onError: AppColor.white,
           surface: AppColor.darkPurple,
           onSurface: AppColor.white
+      ),
+
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: AppColor.darkPurple,
+        selectedItemColor: AppColor.white,
+        unselectedItemColor: AppColor.white,
+
       ),
       filledButtonTheme: FilledButtonThemeData(
           style: FilledButton.styleFrom(

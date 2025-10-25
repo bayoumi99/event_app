@@ -1,4 +1,6 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:event_app/fireBase/fireBase_auth_servces.dart';
+import 'package:event_app/ui/Screens/home/home_Screen.dart';
 import 'package:event_app/ui/Screens/setup/setup_Screen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +19,9 @@ class _StartScreenState extends State<StartScreen> {
   void initState() {
     super.initState();
     Future.delayed(Duration(seconds: 5),(){
-      Navigator.pushReplacementNamed(context, SetupScreen.routeName);
+      var loggedIn = FirebaseAuthServces().isLoggedIn();
+      var initialRoute = loggedIn ? HomeScreen.routeName : SetupScreen.routeName;
+      Navigator.pushReplacementNamed(context, initialRoute);
     });
   }
   @override

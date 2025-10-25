@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/provider/app_config_provider.dart';
+import '../../../l10n/generated/app_localizations.dart';
 
 class SetupScreen extends StatefulWidget {
   const SetupScreen({super.key});
@@ -31,13 +32,12 @@ class _SetupScreenState extends State<SetupScreen> {
               Expanded(child:
               Image.asset('assets/image/${provider.isDark()?"Group.png":"being-creative.png"}',),),
 
-              Text('Personalize Your Experience',style: Theme.of(context).textTheme.titleLarge,),
+              Text(AppLocalizations.of(context)!.personalizeYourExperience,style: Theme.of(context).textTheme.titleLarge,),
               SizedBox(height: 8,),
-              Text("Choose your preferred theme and language to get started with a comfortable,"
-                  " tailored experience that suits your style.",style: Theme.of(context).textTheme.bodyLarge,),
+              Text(AppLocalizations.of(context)!.setupMessage,style: Theme.of(context).textTheme.bodyLarge,),
               Row(
                 children: [
-                  Text('language',style: Theme.of(context).textTheme.titleLarge,),
+                  Text(AppLocalizations.of(context)!.language,style: Theme.of(context).textTheme.titleLarge,),
                     Spacer(),
                     LanguageSwicth(),
                 ],
@@ -45,7 +45,7 @@ class _SetupScreenState extends State<SetupScreen> {
               SizedBox(height: 8,),
               Row(
                 children: [
-                  Text('theme',style: Theme.of(context).textTheme.titleLarge,),
+                  Text(AppLocalizations.of(context)!.theme,style: Theme.of(context).textTheme.titleLarge,),
                   Spacer(),
                   ThemeSwitch()
                 ],
@@ -56,7 +56,7 @@ class _SetupScreenState extends State<SetupScreen> {
               }, child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Let's Go ")
+                  Text(AppLocalizations.of(context)!.letsGo,style: Theme.of(context).textTheme.titleLarge)
                 ],
               ))
             ],
