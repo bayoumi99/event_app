@@ -29,5 +29,16 @@
   "passwordLength": "Password Must Be Longer Than 8 Characters",
   "rePasswordRequired": "Password Confirmation is Required",
   "passwordsNotMatch": "Passwords Do Not Match",
-  "resetPassword" : "Reset Password"
+  "resetPassword" : "Reset Password",
+  "screen1_title": "Find Event That Inspire You",
+  "screen1_desc": "Discover unique experiences and events tailored to your interests. Explore, connect, and enjoy unforgettable moments.",
+  "screen2_title": "Effortless Event Planning",
+  "screen2_desc": "Simplify your event planning process. From invitations to scheduling, manage everything in one place.",
+  "screen3_title": "Connect with Friends & Share Moments",
+  "screen3_desc": "Stay in touch with friends, share event memories, and create new ones together effortlessly.",
+  "btn_skip": "Skip",
+  "btn_next": "Next",
+  "btn_done": "Let's Go"
+
+
 }

@@ -7,13 +7,17 @@ import '../../../core/Theme/app_Color.dart';
 import '../../../core/provider/app_config_provider.dart';
 
 class HomeHeader extends StatelessWidget {
-  const HomeHeader({super.key});
+  final List<CategoryDm> categoriesList;
+  final CategoryDm selectedCategory;
+  final Function(CategoryDm) changeSelectedCategory;
+
+
+  const HomeHeader({super.key, required this.categoriesList, required this.selectedCategory, required this.changeSelectedCategory});
 
   @override
   Widget build(BuildContext context) {
     var provider =  Provider.of<AppConfigProvider>(context);
     return Container(
-      padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: provider.isDark()?AppColor.darkPurple:AppColor.purple,
         borderRadius: BorderRadius.only(
@@ -24,64 +28,72 @@ class HomeHeader extends StatelessWidget {
       child: SafeArea(
         child: Column(
           children: [
-           Row(
-        children: [
-          Expanded(
-     child: Column(
-     crossAxisAlignment: CrossAxisAlignment.start,
-     children: [
-      Text("Welcome Back", style:
-      Theme.of(context).textTheme.bodyLarge!.copyWith(
-        color: provider.isDark()?AppColor.lightBlue:AppColor.white,
-      ),),
-      Text(FirebaseAuthServces().getUserData()?.displayName??"" , style:
-      Theme.of(context).textTheme.titleLarge!.copyWith(
-        color: provider.isDark()?AppColor.lightBlue:AppColor.white,
-      ),)
-    ],
-  ),
-),
-          IconButton(
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Welcome Back", style:
+                Theme.of(context).textTheme.bodyLarge!.copyWith(
+                  color: provider.isDark()?AppColor.lightBlue:AppColor.white,
+                ),),
+                Text(FirebaseAuthServces().getUserData()?.displayName??"" , style:
+                Theme.of(context).textTheme.titleLarge!.copyWith(
+                  color: provider.isDark()?AppColor.lightBlue:AppColor.white,
+                ),)
+              ],
+                        ),
+                      ),
+                      IconButton(
               onPressed: (){
-            provider.changeTheme(provider.isDark()?ThemeMode.light:ThemeMode.dark);
-          }, icon: Icon(provider.isDark()?Icons.dark_mode_outlined:
-          Icons.light_mode_outlined,
-            color: provider.isDark()?AppColor.lightBlue:
-            AppColor.white,
-          )),
-          InkWell(
-            onTap: (){
+                provider.changeTheme(provider.isDark()?ThemeMode.light:ThemeMode.dark);
+              }, icon: Icon(provider.isDark()?Icons.dark_mode_outlined:
+                      Icons.light_mode_outlined,
+                        color: provider.isDark()?AppColor.lightBlue:
+                        AppColor.white,
+                      )),
+                      InkWell(
+                        onTap: (){
               provider.changeLocal(provider.isEn()?"ar":"en");
-            },
-            child: Container(
+                        },
+                        child: Container(
               padding: EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: provider.isDark()?AppColor.lightBlue:AppColor.white,
                 borderRadius: BorderRadius.circular(8),
               ),
-            child: Text(provider.isEn()?"EN": "ع",
-              style: TextStyle(
+              child: Text(provider.isEn()?"EN": "ع",
+                style: TextStyle(
                   color: provider.isDark()?AppColor.darkPurple
-              :AppColor.purple,
-              ),),
+                      :AppColor.purple,
+                ),),
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(height: 8,),
+                  Row(
+                      children: [
+                        Icon(Icons.location_on_outlined,
+              color: provider.isDark()?AppColor.lightBlue:AppColor.white,
+                        ),
+                        SizedBox(width: 8,),
+                        Text("El-Minya, Egypt",style:
+                        Theme.of(context).textTheme.bodyLarge!.copyWith(
+              color: provider.isDark()?AppColor.lightBlue:AppColor.white,)),
+
+                      ]
+                  ),
+                  SizedBox(height: 16,),
+                ],
+              ),
             ),
-          )
-        ],
- ),
-            SizedBox(height: 8,),
-            Row(
-              children: [
-                Icon(Icons.location_on_outlined,
-                  color: provider.isDark()?AppColor.lightBlue:AppColor.white,
-                ),
-                SizedBox(width: 8,),
-                Text("El-Minya, Egypt",style:
-               Theme.of(context).textTheme.bodyLarge!.copyWith(
-                 color: provider.isDark()?AppColor.lightBlue:AppColor.white,)),
-                 
-              ]
-            ),
-            SizedBox(height: 16,),
             DefaultTabController(
               length: categoriesList.length,
               child: TabBar(
@@ -96,6 +108,7 @@ class HomeHeader extends StatelessWidget {
                 categoriesList.map((category)=> Container(
                   padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                       decoration: BoxDecoration(
+                        color: category.id== selectedCategory.id?AppColor.white:Colors.transparent,
                         borderRadius: BorderRadius.circular(1000),
                         border: Border.all(width: 1,
                             color: provider.isDark()?AppColor.lightBlue:AppColor.white)
@@ -103,11 +116,12 @@ class HomeHeader extends StatelessWidget {
                      child: Row(
                   children: [
                     Icon(category.icon ,
-                        color:provider.isDark()?AppColor.darkPurple:AppColor.purple, ),
+                      color: category.id== selectedCategory.id?Theme.of(context).primaryColor:AppColor.white,
+                    ),
                     SizedBox(height: 8,),
                     Text(provider.isEn()?category.nameEn:category.nameAr,
                     style: TextStyle(
-                      color: provider.isDark()?AppColor.darkPurple:AppColor.purple,
+                      color: category.id== selectedCategory.id?Theme.of(context).primaryColor:AppColor.white,
                     ),)
                      ],
                 )
@@ -116,7 +130,8 @@ class HomeHeader extends StatelessWidget {
             )
 
 
-            )
+            ),
+            SizedBox(height: 16,),
           ],
         ),
       ),

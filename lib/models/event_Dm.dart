@@ -1,19 +1,24 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'Category_Dm.dart';
 
-class EventDm{
-  String title;
-  String description;
+ class EventDm{
+  final String title;
+  final String description;
   String id;
-  int categoryId;
-  int date;
-  int time;
+  final CategoryDm category;
+  final int date;
+  final int time;
+  final List<String> favoriteUser;
 
-  EventDm(this.title,
-      this.description,
-      this.id,
-      this.categoryId,
-      this.date,
-      this.time);
+  EventDm( {
+    required this.title,
+    required this.description,
+    required this.id,
+    required this.category,
+    required this.date,
+    required this.time,
+    this.favoriteUser = const[],}
+      );
 
   factory EventDm.fromFirestore(
       DocumentSnapshot<Map<String, dynamic>> snapshot,
@@ -21,12 +26,13 @@ class EventDm{
       ) {
     final data = snapshot.data();
     return EventDm(
-        data?["title"],
-        data?["description"],
-        data?["id"],
-        data?["categoryId"],
-        data?["date"],
-        data?["time"]
+        title: data?["title"],
+        description: data?["description"],
+         id:  data?["id"],
+        category: categoriesList.firstWhere((e)=>e.id==data?["categoryId"],),
+        date: data?["date"],
+        time:  data?["time"],
+         favoriteUser:  (data?["favoriteUser"]as List<dynamic>).map((e)=>e.toString()).toList()??[],
     );
 }
 
@@ -35,9 +41,10 @@ class EventDm{
       "title" : title,
       "description" : description,
       "id" : id,
-      "categoryId" : categoryId,
+      "categoryId" : category.id,
       "date" : date,
       "time" : time,
+      "favoriteUser" : favoriteUser,
     };
   }
 }

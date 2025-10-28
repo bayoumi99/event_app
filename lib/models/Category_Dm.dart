@@ -4,9 +4,8 @@ class CategoryDm {
   String nameEn;
   String nameAr;
   int id;
-  String imagePath;
+  final String imagePath;
   IconData icon;
-
   CategoryDm(this.nameEn, this.nameAr, this.id, this.imagePath, this.icon);
 }
 

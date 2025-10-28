@@ -77,7 +77,7 @@ static Future<void> showActionDialog({
             if(negativeAction != null){
               negativeAction();
             }
-          },child: Text(negativeActionTitle!,
+          },child: Text(negativeActionTitle,
           style: TextStyle(
               fontSize: 16,
               color: Colors.black,

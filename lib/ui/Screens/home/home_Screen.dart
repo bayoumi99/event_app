@@ -80,8 +80,8 @@ setState(() {
         label: "favorite",
       ),
       BottomNavigationBarItem(
-        icon: Icon(Icons.person_2_outlined),
-        activeIcon: Icon(Icons.person_2),
+        icon: Icon(Icons.person_outlined),
+        activeIcon: Icon(Icons.person),
         label: "Profile",
       ),
 

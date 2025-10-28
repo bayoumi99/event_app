@@ -238,12 +238,12 @@ class _MangeEventState extends State<MangeEvent> {
               EventsDatabase eventsDatabase = EventsDatabase();
               await eventsDatabase.createEvent(
                   EventDm(
-    titleController.text,
-    descriptionController.text,
-    "",
-    selectedCategory.id,
-    selectedDate!.millisecondsSinceEpoch,
-    DateTime(
+    title:  titleController.text,
+    description:  descriptionController.text,
+    id:  "",
+    category:  selectedCategory,
+   date:  selectedDate!.millisecondsSinceEpoch,
+    time:  DateTime(
       0,0,0,
       selectedTime!.hour,
       selectedTime!.minute,

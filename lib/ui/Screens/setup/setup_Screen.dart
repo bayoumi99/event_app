@@ -1,15 +1,14 @@
-import 'package:event_app/ui/Screens/login_screen/Login_screen.dart';
+import 'package:event_app/ui/Screens/info/info_Screen.dart';
 import 'package:event_app/ui/Widgets/Theme_switch.dart';
 import 'package:event_app/ui/Widgets/language_swicth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../../../core/provider/app_config_provider.dart';
 import '../../../l10n/generated/app_localizations.dart';
 
 class SetupScreen extends StatefulWidget {
   const SetupScreen({super.key});
-  static const String routeName = "Info Screen ";
+  static const String routeName = "Setup Screen ";
 
   @override
   State<SetupScreen> createState() => _SetupScreenState();
@@ -52,7 +51,7 @@ class _SetupScreenState extends State<SetupScreen> {
               ),
               SizedBox(height: 8,),
               FilledButton(onPressed: (){
-                Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+                Navigator.pushReplacementNamed(context, InfoScreen.routeName);
               }, child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
