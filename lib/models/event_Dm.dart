@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'Category_Dm.dart';
+import 'package:event_app/models/Category_Dm.dart';
 
  class EventDm{
   final String title;
@@ -32,7 +32,7 @@ import 'Category_Dm.dart';
         category: categoriesList.firstWhere((e)=>e.id==data?["categoryId"],),
         date: data?["date"],
         time:  data?["time"],
-         favoriteUser:  (data?["favoriteUser"]as List<dynamic>).map((e)=>e.toString()).toList()??[],
+         favoriteUser:  (data?["favoriteUser"]as List<dynamic>).map((e)=>e.toString()).toList(),
     );
 }
 

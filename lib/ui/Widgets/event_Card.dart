@@ -57,7 +57,7 @@ Container(
 
                       });
                     },
-                    child: Icon(EventDm.favorite.contains(FirebaseAuthServces().getUserData()?.uid)?
+                    child: Icon(EventDm.favoriteUser.contains(FirebaseAuthServces().getUserData()?.uid)?
                     Icons.favorite:Icons.favorite_border,
                       color: Theme.of(context).primaryColor,),
                   )

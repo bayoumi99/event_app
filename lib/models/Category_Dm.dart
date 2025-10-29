@@ -4,13 +4,18 @@ class CategoryDm {
   String nameEn;
   String nameAr;
   int id;
-  final String imagePath;
+   String imagePath;
   IconData icon;
-  CategoryDm(this.nameEn, this.nameAr, this.id, this.imagePath, this.icon);
+  CategoryDm(
+      this.nameEn,
+      this.nameAr,
+      this.id,
+      this.imagePath,
+      this.icon);
 }
 
 
-List<CategoryDm> categoriesList = [
+ List<CategoryDm> categoriesList = [
   CategoryDm(
     'Sport',
     'رياضة',
